@@ -1,51 +1,56 @@
+# SteemCommentsSystem - Add Steem Comments To Any Website/Blog
 
-# Finally Comments &  Steemcomments.js
+Steem comments is a plugin that allows you to add steem comment threads to any website with the ability to comment and upvote. Include the CSS, JS and dependencies and with one line of HTML you can include any steem comments thread.
 
-The aim of this project is to promote the Steem ecosystem by breaking the comments system out of the walls of Steem based apps.
+Steemcomemnts uses steem-js to load in comment thread and Steemconnects hot linking feature to allow uses to authenticate without needing to trust the website operator where the comments are viewed. 
 
-## Finally comments
-An embededable version of steem (steemit/busy/utopian) comments with comment and vote functionality 
+Comments/Votes act as expect with the addition of needed to supply a username as the viewer is not logged in, when finally clicking post or vote a popup appears for Steemconnect authentication. 
 
-### How It Works
-[Please visit the site for more detaails](http://finallycomments.com)
+![Screen Shot 2018-01-20 at 22.08.00.png](https://steemitimages.com/DQmS5EGAK8cUM8XWEGddABScgHnyK5tREnXURAEKHwE5nCL/Screen%20Shot%202018-01-20%20at%2022.08.00.png)
 
-Finally is an evolution of Steemcomments.js and at its core uses the Steem blockchain to provide posting and curation rewards to its users. Similar to other popular plug and play comment systems Finally requires only a single html tag while our javascript library & backend system take care of the rest.
+## Example
+Vist the example page to try it for yourself
 
-use the generator online at [http://finallycomments.com](http://finallycomments.com). Example code output.
+[💯 LIVE EXAMPLE](https://code-with-sam.github.io/s-c-plugin/examples/basic.html) 
+
+## Setup
+Comments can be added to any website where you have access to adding custom html. You can download and add these files to your project or link to them directly.
+
+Link the minified CSS in the head of your page.
 ```
-  <section class="finally-comments" data-id="https://utopian.io/utopian-io/@sambillingham/tutorial-beginner-friendly-build-your-first-steem-bot-in-javascript-30minutes"></section>
-  <script src="https://finallycomments.com/js/finally.min.js"></script>
-
-```
-![](http://i66.tinypic.com/5ozia8.jpg)
-
-Finally uses Steemconnect authentication to allow users to post comments and upvotes directly from anywhere Finally is embeded. Once authenticated with Finally users will not have to log in again when visiting other sites that also use Finally.
-
-*Currently Finally only supports content already posted to the Steem network. Sites including Steemit, Busy or Utopian. Support for more sites (dmania/dsound/dtube/dlive) will be added shortly and in the comming weeks support for content outside of the Steem blockchain will be enabled.*
-
-### Development Setup
-You'll need to create an account on steemconnect.com to work on this project (current cost 3 STEEM). Use the details within the finallycomments app. Make sure the redirect url matches.
-
-start by passing enviroment varibles to the node process for example
-```
-git clone
-cd app/
-npm install
-NODE_CLIENT_ID="newproject.app" NODE_REDIRECT_URI="localhost:3000/auth/" NODE_SESSION_SECRET="supersecret27" node ./bin/www
+<link rel="stylesheet" href="https://raw.githubusercontent.com/code-with-sam/s-c-plugin/master/dist/steemcomments.min.css">
 ```
 
-### Feature Roadmap
-- code/link generation dtube/dmania/dlive/dsound etc
-- can use on non steem top level comments - auto generated for user. (will need to sign into finally and have page for creating threads)
-- sorting comments
-- comment value (with ability to enable/disable) 
-- auto hide posts from rep less than X
-- edit/delete/flag comments
-- wordpress plugin
-- non logged in user comments (not expected for some time)
+Link the minified JS before the closing body tag.
+```
+<script src="https://raw.githubusercontent.com/code-with-sam/s-c-plugin/master/dist/steemcomments.min.js"></script>
+```
+
+Add any html element with the class ```.sc-section``` and a ```data-steemlink``` with a full url to your steem post.
+```
+<section class="sc-section" data-steemlink="https://steemit.com/photofeed/@sambillingham/20180117t104924425z-post"></section>
+```
 
 
-## Steemcomments.js
-A proof of concept using steemconnect transaction signing
+All css and javascript is namesppaced with the prefix ```.sc-``` and ```const steemcomments``` respectively.
 
-[see full readme](https://github.com/code-with-sam/s-c-plugin/tree/master/steemconnect-sign-transactions)
+### Dependencies
+Also link dependencies before steemcomments javascript if your website is not already using them. jQuery, Moment.js, steem-js.
+```
+<script src="https://cdn.steemjs.com/lib/latest/steem.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+```
+
+# Roadmap
+- Remove jQuery + Moment.js as a dependencies
+- include individual vote amounts for each comment
+- CDN host
+
+# Contributions
+Ideas, sugestions and PR's welcome 
+
+created by [@sambillingham](https://steemit.com/@sambillingham)
+
+
