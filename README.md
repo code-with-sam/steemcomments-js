@@ -11,7 +11,7 @@ Comments/Votes act as expect with the addition of needed to supply a username as
 ## Example
 Vist the example page to try it for yourself
 
-[💯 LIVE EXAMPLE](https://code-with-sam.github.io/s-c-plugin/examples/basic.html) 
+[💯 LIVE EXAMPLE](https://code-with-sam.github.io/steemcomments-js/example/) 
 
 ## Setup
 Comments can be added to any website where you have access to adding custom html. You can download and add these files to your project or link to them directly.
